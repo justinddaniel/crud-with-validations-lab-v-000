@@ -29,5 +29,9 @@ class SongsController < ApplicationController
   def delete
   end
 
+  def song_params
+    params.permit(:title, :released, :release_year, :artist_name, :genre)
+  end
+
 
 end
