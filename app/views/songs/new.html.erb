@@ -1,42 +1,9 @@
-<h2>Create a Song</h2>
-<%= form_tag songs_path, method: "post" do %>
-
-  <% if @song.errors.any? %>
-  <div id="error_explanation">
-    <h2>There were some errors:</h2>
-    <ul>
-      <% @song.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-
-
-  <div class="field<%= ' field_with_errors' if @song.errors[:name].any? %>">
-    <%= label_tag "name", "Name" %>
-    <%= text_field_tag "name", @song.name %>
-  </div>
-
-  <div class="field<%= ' field_with_errors' if @song.errors[:email].any? %>">
-    <%= label_tag "email", "Email" %>
-    <%= text_field_tag "email", @song.email %>
-  </div>
-
-  <div class="field<%= ' field_with_errors' if @song.errors[:phone_number].any? %>">
-    <%= label_tag "phone_number", "Phone Number" %>
-    <%= text_field_tag "phone_number", @song.phone_number %>
-  </div>
-
-  <div class="field<%= ' field_with_errors' if @song.errors[:phone_number].any? %>">
-    <%= label_tag "phone_number", "Phone Number" %>
-    <%= text_field_tag "phone_number", @song.phone_number %>
-  </div>
-
-  <div class="field<%= ' field_with_errors' if @song.errors[:phone_number].any? %>">
-    <%= label_tag "phone_number", "Phone Number" %>
-    <%= text_field_tag "phone_number", @song.phone_number %>
-  </div>
-
-  <%= submit_tag "Create" %>
+<h1> Create new Song </h1>
+<%= form_for @song do |s| %>
+  <%= s.text_field :title %>
+  <%= s.text_field :released %>
+  <%= s.text_field :release_year %>
+  <%= s.text_field :artist_name %>
+  <%= s.text_field :genre %>
+  <%= s.submit %>
 <% end %>
